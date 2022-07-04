@@ -1,20 +1,16 @@
 import React from "react";
-import { LiveVideo } from "./svg";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home, Login, Profile } from "./pages";
 
 function App() {
-  const get = async () => {
-    const response = await fetch("http://localhost:3000");
-    console.log(response);
-  };
-
-  get();
-
   return (
-    <>
-      <div>welcome to frontend</div>
-      <div className="all_friends_icon"></div>
-      <LiveVideo color="slateblue" />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
